@@ -2210,6 +2210,7 @@ E void NDECL(rumor_check);
 /* ### save.c ### */
 
 E int NDECL(dosave);
+E int NDECL(dosave_noconfirm);
 E int NDECL(dosave0);
 E boolean FDECL(tricked_fileremoved, (int, char *));
 #ifdef INSURANCE

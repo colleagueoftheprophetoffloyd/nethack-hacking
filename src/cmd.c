@@ -111,6 +111,7 @@ extern int NDECL(doturn);             /**/
 extern int NDECL(doredraw);           /**/
 extern int NDECL(doread);             /**/
 extern int NDECL(dosave);             /**/
+extern int NDECL(dosave_noconfirm);   /**/
 extern int NDECL(dosearch);           /**/
 extern int NDECL(doidtrap);           /**/
 extern int NDECL(dopay);              /**/
@@ -3446,6 +3447,7 @@ struct ext_func_tab extcmdlist[] = {
             doride, AUTOCOMPLETE },
     { M('r'), "rub", "rub a lamp or a stone", dorub, AUTOCOMPLETE },
     { 'S', "save", "save the game and exit", dosave, IFBURIED | GENERALCMD },
+    { '~', "save-noconfirm", "save the game and exit without prompting", dosave_noconfirm, IFBURIED | GENERALCMD },
     { 's', "search", "search for traps and secret doors",
             dosearch, IFBURIED, "searching" },
     { '*', "seeall", "show all equipment in use", doprinuse, IFBURIED },

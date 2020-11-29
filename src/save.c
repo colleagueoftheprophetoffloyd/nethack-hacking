@@ -75,6 +75,34 @@ static struct save_procs {
 static unsigned ustuck_id = 0, usteed_id = 0;
 
 int
+dosave_noconfirm()
+{
+    if (iflags.debug_fuzzer)
+        return 0;
+    clear_nhwindow(WIN_MESSAGE);
+    if (0) {
+        clear_nhwindow(WIN_MESSAGE);
+        if (multi > 0)
+            nomul(0);
+    } else {
+        clear_nhwindow(WIN_MESSAGE);
+        pline("Saving...");
+#if defined(UNIX) || defined(VMS) || defined(__EMX__)
+        program_state.done_hup = 0;
+#endif
+        if (dosave0()) {
+            u.uhp = -1; /* universal game's over indicator */
+            /* make sure they see the Saving message */
+            display_nhwindow(WIN_MESSAGE, TRUE);
+            exit_nhwindows("Be seeing you...");
+            nh_terminate(EXIT_SUCCESS);
+        } else
+            (void) doredraw();
+    }
+    return 0;
+}
+
+int
 dosave()
 {
     if (iflags.debug_fuzzer)

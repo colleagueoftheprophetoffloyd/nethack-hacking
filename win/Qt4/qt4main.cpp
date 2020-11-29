@@ -532,6 +532,7 @@ NetHackQtMainWindow::NetHackQtMainWindow(NetHackQtKeyBuffer& ks) :
         { game,    "Explore mode",       3, enter_explore_mode},
         { game,    0, 3},
         { game,    "Save",               3, dosave},
+        { game,    "Save no confirm",    3, dosave_noconfirm},
         { game,    "Quit",               3, done2},
 
         { apparel, "Apparel off",        2, doddoremarm},
